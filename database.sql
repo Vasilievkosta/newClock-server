@@ -1,7 +1,7 @@
 
 create TABLE city(
 	id SERIAL PRIMARY KEY,
-	name VARCHAR(255)
+	title VARCHAR(255) NOT NULL
 );
 
 create TABLE master(
