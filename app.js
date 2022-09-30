@@ -10,6 +10,16 @@ app.use(cors());
 app.use(express.json());
 
 // app.use('/api', masterRouter);
+
+app.post('/api/createMaster', async (req, res) => {
+	const { name, city_id } = req.body;
+	const master = await db.query('INSERT INTO master (name, city_id) values ($1, $2) RETURNING *', [name, city_id]);
+	console.log(master.rows);
+	if (!req.body) return res.sendStatus(400);
+	res.json(master.rows);
+
+});
+
 app.get('/api/master', async (req, res) => {
 	const masters = await db.query('SELECT * FROM master');
 	// console.dir({masters});
