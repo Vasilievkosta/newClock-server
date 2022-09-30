@@ -29,7 +29,7 @@ app.get('/api/master', async (req, res) => {
 
 app.get('/api/masters', async (req, res) => {
 	const masters = await db.query('SELECT master.id, master.name, city.title FROM master JOIN city ON city.id=master.city_id');
-	console.log(masters.rows);
+	console.table(masters.rows);
 	res.json(masters.rows);
 });
 
