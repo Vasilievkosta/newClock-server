@@ -20,6 +20,15 @@ app.post('/api/createMaster', async (req, res) => {
 
 });
 
+app.post('/api/createCity', async (req, res) => {
+	const { title } = req.body;
+	const city = await db.query('INSERT INTO city (title) values ($1) RETURNING *', [title]);
+	console.log(city.rows);
+	if (!req.body) return res.sendStatus(400);
+	res.json(city.rows);
+
+});
+
 app.get('/api/master', async (req, res) => {
 	const masters = await db.query('SELECT * FROM master');
 	// console.dir({masters});
