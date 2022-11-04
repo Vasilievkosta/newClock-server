@@ -10,3 +10,12 @@ create TABLE master(
 	city_id INTEGER,
 	FOREIGN KEY (city_id) REFERENCES city (id)
 );
+
+create TABLE user(
+	id SERIAL PRIMARY KEY,
+	userName VARCHAR(30),
+	email VARCHAR(30),	
+	time VARCHAR(100),
+	city_id INTEGER,
+	FOREIGN KEY (city_id) REFERENCES city (id)
+);
