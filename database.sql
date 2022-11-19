@@ -1,4 +1,3 @@
-
 create TABLE city(
 	id SERIAL PRIMARY KEY,
 	title VARCHAR(255) NOT NULL
@@ -11,7 +10,7 @@ create TABLE master(
 	FOREIGN KEY (city_id) REFERENCES city (id)
 );
 
-create TABLE user(
+create TABLE users(
 	id SERIAL PRIMARY KEY,
 	userName VARCHAR(30),
 	email VARCHAR(30),	
